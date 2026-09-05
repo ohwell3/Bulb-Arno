@@ -245,14 +245,8 @@ export const screens: Record<string, Screen> = {
       const terminusPosition = terminus?.stop?.position;
 
       const urlParams = new URLSearchParams();
-      urlParams.append(
-        "from",
-        origin?.stop?.id.replace("fr-idf_", "stop_area:") || "",
-      );
-      urlParams.append(
-        "route",
-        origin?.routes?.at(0)?.id.replace("fr-idf_", "line:") || "",
-      );
+      urlParams.append("from", origin?.stop?.id || "");
+      urlParams.append("route", origin?.routes?.at(0)?.id || "");
       if (!isTerminus) {
         urlParams.append(
           "to",
